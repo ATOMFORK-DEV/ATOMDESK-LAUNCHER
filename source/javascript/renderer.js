@@ -13,12 +13,12 @@ function swapContent() {
   const content = document.getElementById('content');
   const alternateContent = document.getElementById('alternate-content');
   
-  if (content.style.display !== 'none') {
+  if (content.style.display === 'none') {
+    content.style.display = 'flex';
+    alternateContent.style.display = 'none';
+  } else {
     content.style.display = 'none';
     alternateContent.style.display = 'block';
-  } else {
-    content.style.display = 'block';
-    alternateContent.style.display = 'none';
   }
 }
 
@@ -28,10 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Left click event for swapping content
   titlebarIcon.addEventListener('click', (event) => {
-    if (event.button === 0) {  // Left click
-      swapContent();
-      console.log('Titlebar icon clicked, swapping content');
-    }
+    swapContent();
+    console.log('Titlebar icon clicked, swapping content');
   });
 
   // Right click event for context menu
@@ -71,12 +69,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const quickCmdsToggle = document.getElementById('quick-cmds-toggle');
   const quickCmds = document.getElementById('quick-cmds');
+  const quickCmdsContent = document.getElementById('quick-cmds-content');
+  const leftColumn = document.getElementById('left-column');
+  const rightColumn = document.getElementById('right-column');
 
   // Set initial state
   quickCmds.style.display = 'none';
+  
+  // Ensure left and right columns are always visible
+  leftColumn.style.display = 'block';
+  rightColumn.style.display = 'block';
 
   quickCmdsToggle.addEventListener('change', () => {
-    quickCmds.style.display = quickCmdsToggle.checked ? 'flex' : 'none';
+    const display = quickCmdsToggle.checked ? 'flex' : 'none';
+    quickCmds.style.display = display;
+    
+    // We don't toggle quickCmdsContent anymore
+    // quickCmdsContent.style.display = display;
   });
 
   // Log the toggle action
