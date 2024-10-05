@@ -9,7 +9,7 @@ body {
 
 #titlebar {
   height: 28px; /* Reduced from 32px */
-  background-color: #2f3241;
+  background-color: #222222;
   display: flex;
   justify-content: space-between;
   align-items: center;

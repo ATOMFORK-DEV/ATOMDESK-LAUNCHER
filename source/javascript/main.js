@@ -4,6 +4,19 @@ const path = require('node:path')
 let win;
 let tray;
 
+// Enable hot reload for development with reduced logging
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    require('electron-reloader')(module, {
+      debug: false,
+      watchRenderer: true,
+      ignore: ['node_modules', 'src/logs/*', 'src/data/*']
+    });
+  } catch (err) { 
+    console.error('Error setting up hot reload:', err);
+  }
+}
+
 function createWindow () {
   const { screen } = require('electron');
   const primaryDisplay = screen.getPrimaryDisplay();
@@ -21,8 +34,8 @@ function createWindow () {
     frame: false,
     movable: false,
     resizable: false,
-    skipTaskbar: true,
     transparent: true,
+    skipTaskbar: false,
     backgroundColor: '#ffffff',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -30,13 +43,13 @@ function createWindow () {
       contextIsolation: false
     },
     icon: path.join(__dirname, '..', 'assets', 'favicon', 'favicon.ico'),
-    title: 'WINDOW' // Add this line to set the window title
+    title: 'LAUNCHER' // Add this line to set the window title
   })
 
   win.loadFile(path.join(__dirname, '..', 'index.html'))
 
   // Set the window title again after loading the file
-  win.setTitle('WINDOW')
+  win.setTitle('LAUNCHER')
 
   win.on('maximize', () => {
     win.webContents.send('window-maximized');

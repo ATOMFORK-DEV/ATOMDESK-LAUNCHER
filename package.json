@@ -21,6 +21,7 @@
     "url": "https://github.com/ATOMFORK-DEV/ATOMDESK-LAUNCHER/issues"
   },
   "devDependencies": {
-    "electron": "^32.1.2"
+    "electron": "^32.1.2",
+    "electron-reloader": "^1.2.3"
   }
 }
