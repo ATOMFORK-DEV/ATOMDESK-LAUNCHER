@@ -1,6 +1,6 @@
 {
   "name": "atomdesk-launcher",
-  "version": "1.0.0",
+  "version": "0.0.20",
   "description": "launcher for atomdesk suite",
   "main": "./source/javascript/main.js",
   "keywords": [
