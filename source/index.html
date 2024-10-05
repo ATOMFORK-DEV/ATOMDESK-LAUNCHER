@@ -3,21 +3,272 @@
   <head>
     <meta charset="UTF-8">
     <title>WINDOW</title>
+    <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet/styles.css">
+    <link rel="stylesheet" href="stylesheet/index.css">
   </head>
   <body>
     <div id="titlebar">
-      <div id="titlebar-icon"></div>
+      <div id="titlebar-icon">
+        <i class="fas fa-bars"></i>
+      </div>
       <div id="drag-region"></div>
       <div id="window-controls">
+        <label class="switch">
+          <input type="checkbox" id="quick-cmds-toggle">
+          <span class="slider round"></span>
+        </label>
         <div class="button" id="min-button"></div>
-        <div class="button" id="max-button"></div>
-        <div class="button" id="restore-button"></div>
         <div class="button" id="close-button"></div>
       </div>
     </div>
     <div id="content">
-      <!-- Your existing content goes here -->
+      <form id="quick-cmds">
+        <input type="text" id="search-box" placeholder="/ Commands ...">
+        <button type="submit" id="submit-button">Submit</button>
+      </form>
+      <div id="quick-cmds-content">
+        <div class="quick-cmds-column" id="left-column">
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Favorites</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <button class="accordion-button">
+                  <span>Program</span>
+                  <i class="fa-regular fa-square"></i>
+                </button>
+                <button class="accordion-button">
+                  <span>Program</span>
+                  <i class="fa-regular fa-square"></i>
+                </button>
+                <button class="accordion-button">
+                  <span>Program</span>
+                  <i class="fa-regular fa-square"></i>
+                </button>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Accessibility</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Development</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Education</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Games</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Graphics</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Internet</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Media</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Office</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Security</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Utilities</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                <!----------------------------------->
+              </div>
+            </div>
+          </div>
+          <div id="scroll-wrapper"></div>
+        </div>
+        <div class="quick-cmds-column" id="right-column">
+          <br>
+          <button class="right-column-button">
+            <span class="button-label">Desktop</span>
+            <i class="fa-solid fa-desktop"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Downloads</span>
+            <i class="fa-solid fa-download"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Documents</span>
+            <i class="fa-solid fa-folder"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Pictures</span>
+            <i class="fa-solid fa-image"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Music</span>
+            <i class="fa-solid fa-music"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Videos</span>
+            <i class="fa-solid fa-video"></i>
+          </button>
+
+          <br>
+          <br>
+
+          <button class="right-column-button">
+            <span class="button-label">Calculator</span>
+            <i class="fa-solid fa-calculator"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Editor</span>
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Terminal</span>
+            <i class="fa-solid fa-terminal"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Browser</span>
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="right-column-button">
+            <span class="button-label">Explorer</span>
+            <i class="fa-solid fa-folder-open"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="alternate-content" style="display: none;">
+      <div class="tab-menu">
+        <button class="tab-button active" data-tab="start">
+          <i id="tab-icon" class="fa-brands fa-microsoft"></i>
+        </button>
+        <button class="tab-button" data-tab="settings">
+          <i id="tab-icon" class="fa-solid fa-gear"></i>
+        </button>
+        <!--
+        <button class="tab-button" data-tab="terminal">
+          <i id="tab-icon" class="fa-solid fa-terminal"></i>
+        </button>
+        <button class="tab-button" data-tab="calculator">
+          <i id="tab-icon" class="fa-solid fa-calculator"></i>
+        </button>
+        -->
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="start">
+          <div class="start-menu">
+            <div class="pinned-apps">
+              <h3>Pinned</h3>
+              <div class="app-grid" id="pinned-app-grid">
+                <!-- Pinned apps will be dynamically added here -->
+              </div>
+            </div>
+            <div class="all-apps">
+              <h3>All Apps</h3>
+              <div class="app-list" id="all-app-list">
+                <!-- All apps will be dynamically added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="settings">
+          <div class="settings-dashboard">
+            <h2>Settings</h2>
+            <div class="settings-section">
+              <h3>Appearance</h3>
+              <div class="setting-item">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Behavior</h3>
+              <div class="setting-item">
+                <label for="startup-checkbox">Open on startup:</label>
+                <input type="checkbox" id="startup-checkbox">
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Notifications</h3>
+              <div class="setting-item">
+                <label for="notifications-checkbox">Enable notifications:</label>
+                <input type="checkbox" id="notifications-checkbox">
+              </div>
+            </div>
+            <button id="save-settings">Save Settings</button>
+          </div>
+        </div>
+        <!--
+        <div class="tab-pane" id="terminal">
+          <h2>TERMINAL</h2>
+        </div>
+        <div class="tab-pane" id="calculator">
+          <h2>CALCULATOR</h2>
+        </div>
+        -->
+      </div>
     </div>
     <script src="javascript/renderer.js"></script>
   </body>
