@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 #titlebar {
@@ -62,6 +65,27 @@ body {
   filter: brightness(85%);
 }
 
+#content, #alternate-content {
+  flex-grow: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #content {
-  padding: 20px;
+  background-color: #fff;
+}
+
+#alternate-content {
+  background-color: #fff;
+}
+
+#alternate-content h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#alternate-content p {
+  color: #666;
 }
