@@ -232,3 +232,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Log when the script is loaded
 console.log('renderer.js loaded');
+
+// Settings functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const themeSelect = document.getElementById('theme-select');
+  const startupCheckbox = document.getElementById('startup-checkbox');
+  const notificationsCheckbox = document.getElementById('notifications-checkbox');
+  const saveSettingsButton = document.getElementById('save-settings');
+
+  // Load saved settings
+  function loadSettings() {
+    const savedSettings = JSON.parse(localStorage.getItem('appSettings')) || {};
+    themeSelect.value = savedSettings.theme || 'light';
+    startupCheckbox.checked = savedSettings.openOnStartup || false;
+    notificationsCheckbox.checked = savedSettings.enableNotifications || false;
+    applyTheme(themeSelect.value);
+  }
+
+  // Save settings
+  function saveSettings() {
+    const settings = {
+      theme: themeSelect.value,
+      openOnStartup: startupCheckbox.checked,
+      enableNotifications: notificationsCheckbox.checked
+    };
+    localStorage.setItem('appSettings', JSON.stringify(settings));
+    console.log('Settings saved:', settings);
+    applyTheme(settings.theme);
+  }
+
+  // Apply theme
+  function applyTheme(theme) {
+    document.body.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
+  }
+
+  // Event listeners for settings
+  saveSettingsButton.addEventListener('click', saveSettings);
+  themeSelect.addEventListener('change', () => applyTheme(themeSelect.value));
+
+  // Load settings on startup
+  loadSettings();
+
+  console.log('Settings functionality added');
+});
+
+// Log when the script is loaded
+console.log('renderer.js loaded');

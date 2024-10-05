@@ -481,3 +481,64 @@ input:checked + .slider:before {
 .pin-button:hover {
   color: #333;
 }
+
+.settings-dashboard {
+  padding: 20px;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setting-item label {
+  margin-right: 10px;
+}
+
+#save-settings {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+#save-settings:hover {
+  background-color: #45a049;
+}
+
+/* Light theme (default) */
+body.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-theme .tab-menu {
+  background-color: #222222;
+}
+
+body.dark-theme .tab-button {
+  color: #ffffff;
+}
+
+body.dark-theme .settings-dashboard {
+  background-color: #444444;
+}

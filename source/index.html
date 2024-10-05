@@ -231,7 +231,34 @@
           </div>
         </div>
         <div class="tab-pane" id="settings">
-          <h2>SETTINGS</h2>
+          <div class="settings-dashboard">
+            <h2>Settings</h2>
+            <div class="settings-section">
+              <h3>Appearance</h3>
+              <div class="setting-item">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Behavior</h3>
+              <div class="setting-item">
+                <label for="startup-checkbox">Open on startup:</label>
+                <input type="checkbox" id="startup-checkbox">
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Notifications</h3>
+              <div class="setting-item">
+                <label for="notifications-checkbox">Enable notifications:</label>
+                <input type="checkbox" id="notifications-checkbox">
+              </div>
+            </div>
+            <button id="save-settings">Save Settings</button>
+          </div>
         </div>
         <!--
         <div class="tab-pane" id="terminal">
