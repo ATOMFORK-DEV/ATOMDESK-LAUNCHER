@@ -2,12 +2,4 @@
 
 THIS IS THE LAUNCHER APPLICATION FOR THE ATOMDESK SOFTWARE SUITE.
 
-<!--
-
-##### THIS IS A TEMPLATE OF THE WINDOW USED IN THE ATOMDESK SOFTWARE SUITE.
-
-![alt text](/readme/SCREENSHOT1.png)
-
-![alt text](/readme/SCREENSHOT2.png)
-
--->
+![alt text](/readme/screenshot.png)
