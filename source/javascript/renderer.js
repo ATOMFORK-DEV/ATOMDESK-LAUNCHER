@@ -93,17 +93,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const quickCmdsForm = document.getElementById('quick-cmds');
   const searchBox = document.getElementById('search-box');
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  const accordionButtons = document.querySelectorAll('.accordion-button');
+
+  function filterAccordion(searchTerm) {
+    searchTerm = searchTerm.toLowerCase();
+    
+    accordionItems.forEach(item => {
+      const header = item.querySelector('.accordion-header span').textContent.toLowerCase();
+      const buttons = Array.from(item.querySelectorAll('.accordion-button span')).map(span => span.textContent.toLowerCase());
+      
+      const headerMatch = header.includes(searchTerm);
+      const buttonMatch = buttons.some(button => button.includes(searchTerm));
+      
+      if (headerMatch || buttonMatch) {
+        item.style.display = 'block';
+        if (buttonMatch) {
+          item.querySelector('.accordion-content').style.maxHeight = 'none';
+          item.querySelector('.accordion-header i').classList.replace('fa-chevron-down', 'fa-chevron-up');
+        }
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  searchBox.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.trim();
+    filterAccordion(searchTerm);
+  });
 
   quickCmdsForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent the form from submitting normally
+    e.preventDefault();
     const command = searchBox.value.trim();
     if (command) {
       console.log('Command submitted:', command);
-      // Here you can add logic to process the command
-      // For example, send it to the main process or handle it directly
-      searchBox.value = ''; // Clear the search box after submission
+      filterAccordion(command);
+      // Here you can add additional logic to process the command
+      // searchBox.value = ''; // Uncomment this line if you want to clear the search box after submission
     }
   });
+
+  // Add this new code for the accordion functionality
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const accordionItem = header.parentElement;
+      const accordionContent = header.nextElementSibling;
+      const icon = header.querySelector('i');
+
+      // Close all other accordion items
+      accordionItems.forEach(item => {
+        if (item !== accordionItem) {
+          item.querySelector('.accordion-content').style.maxHeight = null;
+          item.querySelector('.accordion-header i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+        }
+      });
+
+      // Toggle the clicked accordion item
+      if (accordionContent.style.maxHeight) {
+        accordionContent.style.maxHeight = null;
+        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+      } else {
+        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+      }
+    });
+  });
+
+  console.log('Accordion functionality added');
 });
 
 // Log when the script is loaded
