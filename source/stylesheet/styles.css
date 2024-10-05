@@ -88,7 +88,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 80px;
   width: 100%;
   background-color: #222;
   padding: 0 10px;
@@ -147,6 +147,35 @@ body {
 #right-column {
   background-color: #222;
   width: 180px;
+  padding: 10px;
+}
+
+.right-column-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.right-column-button:hover {
+  border: 1px solid #fff;
+  padding: 9px;
+}
+
+.button-label {
+  font-size: 14px;
+  text-align: left;
+}
+
+.right-column-button i {
+  font-size: 12px;
 }
 
 #search-box {
@@ -155,7 +184,7 @@ body {
   padding: 0 10px;
   outline: none;
   font-size: 14px;
-  margin-top: -3px;
+  margin-top: -8px;
   text-transform: uppercase;
   background-color: #222;
   border-bottom: 1px solid #fff;
@@ -167,20 +196,19 @@ body {
   height: 28px;
   padding: 0 15px;
   border: none;
-  margin-top: -2px;
+  margin-top: -7px;
   margin-left: -2px;
   text-transform: uppercase;
   background-color: #222;
   color: #fff;
   font-size: 10px;
   cursor: pointer;
+  border: 1px solid #fff;
   transition: background-color 0.3s;
 }
 
 #submit-button:hover {
-  border: 1px solid #fff;
-  background-color: #222;
-  padding: 0 14px;
+  background-color: #333;
 }
 
 #alternate-content {
