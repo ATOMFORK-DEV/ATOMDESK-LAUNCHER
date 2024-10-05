@@ -215,17 +215,32 @@
       </div>
       <div class="tab-content">
         <div class="tab-pane active" id="start">
-          <h2>START</h2>
+          <div class="start-menu">
+            <div class="pinned-apps">
+              <h3>Pinned</h3>
+              <div class="app-grid" id="pinned-app-grid">
+                <!-- Pinned apps will be dynamically added here -->
+              </div>
+            </div>
+            <div class="all-apps">
+              <h3>All Apps</h3>
+              <div class="app-list" id="all-app-list">
+                <!-- All apps will be dynamically added here -->
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab-pane" id="settings">
           <h2>SETTINGS</h2>
         </div>
+        <!--
         <div class="tab-pane" id="terminal">
           <h2>TERMINAL</h2>
         </div>
         <div class="tab-pane" id="calculator">
           <h2>CALCULATOR</h2>
         </div>
+        -->
       </div>
     </div>
     <script src="javascript/renderer.js"></script>

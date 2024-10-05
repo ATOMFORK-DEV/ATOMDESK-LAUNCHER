@@ -65,7 +65,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add this at the end of the file, inside the DOMContentLoaded event listener
+  // Start menu functionality
+  const pinnedAppGrid = document.getElementById('pinned-app-grid');
+  const allAppList = document.getElementById('all-app-list');
+
+  let apps = [
+    { name: 'Calculator', icon: 'fa-calculator', pinned: true },
+    { name: 'Editor', icon: 'fa-pen', pinned: true },
+    { name: 'Terminal', icon: 'fa-terminal', pinned: true },
+    { name: 'Browser', icon: 'fa-globe', pinned: true },
+    { name: 'Explorer', icon: 'fa-folder-open', pinned: true },
+    { name: 'Settings', icon: 'fa-gear', pinned: true },
+    { name: 'Music', icon: 'fa-music', pinned: false },
+    { name: 'Camera', icon: 'fa-camera', pinned: false },
+    // Add more apps as needed
+  ];
+
+  function createAppItem(app) {
+    const appItem = document.createElement('div');
+    appItem.className = app.pinned ? 'app-item' : 'app-list-item';
+    
+    const icon = document.createElement('i');
+    icon.className = `app-icon fas ${app.icon}`;
+    
+    const name = document.createElement('span');
+    name.className = 'app-name';
+    name.textContent = app.name;
+    
+    const pinButton = document.createElement('button');
+    pinButton.className = 'pin-button';
+    pinButton.innerHTML = app.pinned ? '<i class="fas fa-thumbtack"></i>' : '<i class="fas fa-plus"></i>';
+    
+    appItem.appendChild(icon);
+    appItem.appendChild(name);
+    appItem.appendChild(pinButton);
+    
+    appItem.addEventListener('click', (e) => {
+      if (e.target !== pinButton && e.target.parentElement !== pinButton) {
+        console.log(`Launching ${app.name}`);
+        // Add logic to launch the app
+      }
+    });
+    
+    pinButton.addEventListener('click', () => {
+      app.pinned = !app.pinned;
+      updateStartMenu();
+    });
+    
+    return appItem;
+  }
+
+  function updateStartMenu() {
+    pinnedAppGrid.innerHTML = '';
+    allAppList.innerHTML = '';
+    
+    apps.forEach(app => {
+      if (app.pinned) {
+        pinnedAppGrid.appendChild(createAppItem(app));
+      } else {
+        allAppList.appendChild(createAppItem(app));
+      }
+    });
+  }
+
+  updateStartMenu();
+
+  console.log('Start menu populated with pin/unpin functionality');
 
   const quickCmdsToggle = document.getElementById('quick-cmds-toggle');
   const quickCmds = document.getElementById('quick-cmds');
