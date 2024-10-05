@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>WINDOW</title>
+    <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet/styles.css">
     <link rel="stylesheet" href="stylesheet/index.css">
   </head>
@@ -20,23 +21,31 @@
     </div>
     <div id="alternate-content" style="display: none;">
       <div class="tab-menu">
-        <button class="tab-button active" data-tab="start">TAB 1</button>
-        <button class="tab-button" data-tab="settings">TAB 2</button>
-        <button class="tab-button" data-tab="terminal">TAB 3</button>
-        <button class="tab-button" data-tab="calculator">TAB 4</button>
+        <button class="tab-button active" data-tab="start">
+          <i id="tab-icon" class="fa-brands fa-microsoft"></i>
+        </button>
+        <button class="tab-button" data-tab="settings">
+          <i id="tab-icon" class="fa-solid fa-gear"></i>
+        </button>
+        <button class="tab-button" data-tab="terminal">
+          <i id="tab-icon" class="fa-solid fa-terminal"></i>
+        </button>
+        <button class="tab-button" data-tab="calculator">
+          <i id="tab-icon" class="fa-solid fa-calculator"></i>
+        </button>
       </div>
       <div class="tab-content">
         <div class="tab-pane active" id="start">
-          <h2>TAB CONTENT 1</h2>
+          <h2>START</h2>
         </div>
         <div class="tab-pane" id="settings">
-          <h2>TAB CONTENT 2</h2>
+          <h2>SETTINGS</h2>
         </div>
         <div class="tab-pane" id="terminal">
-          <h2>TAB CONTENT 3</h2>
+          <h2>TERMINAL</h2>
         </div>
         <div class="tab-pane" id="calculator">
-          <h2>TAB CONTENT 4</h2>
+          <h2>CALCULATOR</h2>
         </div>
       </div>
     </div>
