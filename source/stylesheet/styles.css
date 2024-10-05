@@ -20,11 +20,11 @@ body {
   width: 16px;
   height: 16px;
   margin-left: 8px;
-  background-image: url('../assets/favicon/favicon.ico');
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-app-region: no-drag;
   cursor: pointer;
+  color: #fff;
 }
 
 #drag-region {
@@ -50,19 +50,19 @@ body {
 }
 
 #min-button {
-  background-color: #ffbd44;
+  background-color: #fff;
 }
 
 #max-button, #restore-button {
-  background-color: #00ca4e;
+  background-color: #fff;
 }
 
 #close-button {
-  background-color: #ff605c;
+  background-color: #fff;
 }
 
 .button:hover {
-  filter: brightness(85%);
+  background-color: #ccc;;
 }
 
 #content, #alternate-content {
@@ -140,4 +140,44 @@ body {
 #tab-icon {
   font-size: 15px;
   color: #fff;
+}
+
+#alternate-content {
+  padding: 20px;
+}
+
+.tab-menu {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
 }
