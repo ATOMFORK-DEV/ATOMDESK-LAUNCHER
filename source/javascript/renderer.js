@@ -40,6 +40,32 @@ document.addEventListener('DOMContentLoaded', () => {
     ipcRenderer.send('show-titlebar-context-menu');
     console.log('Titlebar icon right-clicked, showing context menu');
   });
+
+  // Tab functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  function switchTab(tabId) {
+    tabButtons.forEach(button => {
+      button.classList.remove('active');
+      if (button.dataset.tab === tabId) {
+        button.classList.add('active');
+      }
+    });
+
+    tabPanes.forEach(pane => {
+      pane.classList.remove('active');
+      if (pane.id === tabId) {
+        pane.classList.add('active');
+      }
+    });
+  }
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      switchTab(button.dataset.tab);
+    });
+  });
 });
 
 // Log when the script is loaded
