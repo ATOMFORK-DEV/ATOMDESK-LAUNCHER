@@ -35,13 +35,14 @@ body {
   display: flex;
   -webkit-app-region: no-drag;
   margin-right: 8px; /* Add some margin to the right */
+  align-items: center; /* Align items vertically */
 }
 
 .button {
   width: 16px; /* Reduced from 32px */
   height: 16px; /* Reduced from 32px */
   border-radius: 50%;
-  margin-right: 6px; /* Reduced from 8px */
+  margin-left: 6px; /* Changed from margin-right to margin-left */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +78,52 @@ body {
   background-color: #fff;
 }
 
+#quick-cmds {
+  display: none; /* This will be toggled by JavaScript */
+  flex-direction: row; /* Changed from column to row */
+  align-items: center;
+  justify-content: center;
+  height: 40px; /* Increased from 30px to accommodate input and button */
+  width: 100%; /* Changed from 400px to full width */
+  background-color: #222;
+  padding: 0 10px; /* Add some padding */
+  box-sizing: border-box;
+}
+
+#search-box {
+  flex-grow: 1;
+  height: 25px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  margin-top: -3px;
+  text-transform: uppercase;
+  background-color: #222;
+  border-bottom: 1px solid #fff;
+  /* border-right: 1px solid #fff; */
+  color: #fff;
+}
+
+#submit-button {
+  height: 28px;
+  padding: 0 15px;
+  border: none;
+  margin-top: -2px;
+  margin-left: -2px;
+  text-transform: uppercase;
+  background-color: #222;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+  border: 1px solid #fff;
+  background-color: #222;
+  padding: 0 14px;
+}
+
 #alternate-content {
   background-color: #fff;
 }
@@ -88,6 +135,16 @@ body {
 
 #alternate-content p {
   color: #666;
+}
+
+#alternate-content {
+  padding: 20px;
+}
+
+/* New style for the tab icon */
+#tab-icon {
+  font-size: 15px;
+  color: #fff;
 }
 
 #alternate-content {
@@ -121,55 +178,9 @@ body {
 
 .tab-button.active {
   border-bottom: 2px solid #fff;
-  color: #007bff;
-}
-
-.tab-content {
-  padding: 20px;
-}
-
-.tab-pane {
-  display: none;
-}
-
-.tab-pane.active {
-  display: block;
-}
-
-/* New style for the tab icon */
-#tab-icon {
-  font-size: 15px;
   color: #fff;
 }
 
-#alternate-content {
-  padding: 20px;
-}
-
-.tab-menu {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.tab-button {
-  background: none;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.tab-button:hover {
-  background-color: #f0f0f0;
-}
-
-.tab-button.active {
-  border-bottom: 2px solid #007bff;
-  color: #007bff;
-}
-
 .tab-content {
   padding: 20px;
 }
@@ -181,3 +192,59 @@ body {
 .tab-pane.active {
   display: block;
 }
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 16px; /* Adjusted to match the height of other controls */
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  border: 1px solid #fff;
+  transition: .4s;
+  border-radius: 18px; /* Make it fully rounded */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px; /* Reduced size */
+  width: 12px; /* Reduced size */
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #222;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #222;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px); /* Adjusted to match new width */
+}
+
+/* Remove these as they're now redundant */
+/* .slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} */

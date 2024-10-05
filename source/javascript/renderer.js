@@ -66,6 +66,35 @@ document.addEventListener('DOMContentLoaded', () => {
       switchTab(button.dataset.tab);
     });
   });
+
+  // Add this at the end of the file, inside the DOMContentLoaded event listener
+
+  const quickCmdsToggle = document.getElementById('quick-cmds-toggle');
+  const quickCmds = document.getElementById('quick-cmds');
+
+  // Set initial state
+  quickCmds.style.display = 'none';
+
+  quickCmdsToggle.addEventListener('change', () => {
+    quickCmds.style.display = quickCmdsToggle.checked ? 'flex' : 'none';
+  });
+
+  // Log the toggle action
+  console.log('Quick commands toggle functionality added');
+
+  const quickCmdsForm = document.getElementById('quick-cmds');
+  const searchBox = document.getElementById('search-box');
+
+  quickCmdsForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the form from submitting normally
+    const command = searchBox.value.trim();
+    if (command) {
+      console.log('Command submitted:', command);
+      // Here you can add logic to process the command
+      // For example, send it to the main process or handle it directly
+      searchBox.value = ''; // Clear the search box after submission
+    }
+  });
 });
 
 // Log when the script is loaded

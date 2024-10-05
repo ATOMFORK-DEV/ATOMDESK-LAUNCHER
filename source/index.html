@@ -14,12 +14,19 @@
       </div>
       <div id="drag-region"></div>
       <div id="window-controls">
+        <label class="switch">
+          <input type="checkbox" id="quick-cmds-toggle">
+          <span class="slider round"></span>
+        </label>
         <div class="button" id="min-button"></div>
         <div class="button" id="close-button"></div>
       </div>
     </div>
     <div id="content">
-      <h2>Main Content</h2>
+      <form id="quick-cmds">
+        <input type="text" id="search-box" placeholder="/ Commands ...">
+        <button type="submit" id="submit-button">Submit</button>
+      </form>
     </div>
     <div id="alternate-content" style="display: none;">
       <div class="tab-menu">
