@@ -32,7 +32,7 @@ function createWindow () {
     x: width - windowWidth,  // Position from right
     y: height - windowHeight,  // Position from bottom
     frame: false,
-    movable: false,
+    movable: true,
     resizable: false,
     transparent: true,
     skipTaskbar: false,
