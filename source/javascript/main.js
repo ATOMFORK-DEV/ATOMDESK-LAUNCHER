@@ -5,10 +5,23 @@ let win;
 let tray;
 
 function createWindow () {
+  const { screen } = require('electron');
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width, height } = primaryDisplay.workAreaSize;
+
+  // Define the window dimensions
+  const windowWidth = 400;  // Adjust as needed
+  const windowHeight = 600; // Adjust as needed
+
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: windowWidth,
+    height: windowHeight,
+    x: width - windowWidth,  // Position from right
+    y: height - windowHeight,  // Position from bottom
     frame: false,
+    movable: false,
+    resizable: false,
+    skipTaskbar: true,
     transparent: true,
     backgroundColor: '#ffffff',
     webPreferences: {

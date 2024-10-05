@@ -1,42 +1,14 @@
-const { ipcRenderer, contextBridge } = require('electron');
+const { ipcRenderer } = require('electron');
 
 document.getElementById('min-button').addEventListener('click', () => {
   ipcRenderer.send('minimize-window');
-});
-
-document.getElementById('max-button').addEventListener('click', () => {
-  ipcRenderer.send('maximize-window');
-});
-
-document.getElementById('restore-button').addEventListener('click', () => {
-  ipcRenderer.send('unmaximize-window');
 });
 
 document.getElementById('close-button').addEventListener('click', () => {
   ipcRenderer.send('close-window');
 });
 
-// Hide the restore button by default
-document.getElementById('restore-button').style.display = 'none';
-
-// Listen for window state changes
-ipcRenderer.on('window-maximized', () => {
-  document.getElementById('max-button').style.display = 'none';
-  document.getElementById('restore-button').style.display = 'flex';
-});
-
-ipcRenderer.on('window-unmaximized', () => {
-  document.getElementById('max-button').style.display = 'flex';
-  document.getElementById('restore-button').style.display = 'none';
-});
-
-// Add event listener for the titlebar icon
-document.getElementById('titlebar-icon').addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-  ipcRenderer.send('show-titlebar-context-menu');
-});
-
-// Add this function to swap the content
+// Function to swap content
 function swapContent() {
   const content = document.getElementById('content');
   const alternateContent = document.getElementById('alternate-content');
@@ -50,13 +22,25 @@ function swapContent() {
   }
 }
 
-// Add an event listener to the titlebar icon
+// Add event listeners when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   const titlebarIcon = document.getElementById('titlebar-icon');
+  
+  // Left click event for swapping content
   titlebarIcon.addEventListener('click', (event) => {
-    // Check if it's a left click (button property is 0 for left click)
-    if (event.button === 0) {
+    if (event.button === 0) {  // Left click
       swapContent();
+      console.log('Titlebar icon clicked, swapping content');
     }
   });
+
+  // Right click event for context menu
+  titlebarIcon.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    ipcRenderer.send('show-titlebar-context-menu');
+    console.log('Titlebar icon right-clicked, showing context menu');
+  });
 });
+
+// Log when the script is loaded
+console.log('renderer.js loaded');
